@@ -1,0 +1,13 @@
+{
+    "DiscordToken": "",
+    "DiscordChannelId": "",
+    "TelegramToken": "",
+    "GroupType": "Supergroup",
+    "UseTelegramDebug": "true",
+    "BlacklistedWords": [
+        "@here",
+        "@everyone",
+        "@Участник",
+        "<@744756657094918246>"
+    ]
+}
