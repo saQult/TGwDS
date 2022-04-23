@@ -16,7 +16,7 @@ namespace TGwDS
                 return;
             DiscordLogger.ConsoleLog($"{message.Author.Username}: {message.Content}");
             string messageToSend = $"[DISCORD]\n{message.Author.Username}: {message.Content}";
-            await TelegramBot.Client.SendTextMessageAsync(-1001377314351, messageToSend);
+            await TelegramBot.Client.SendTextMessageAsync(Startup.Config.TelegramChatId, messageToSend);
         }
     }
 }
