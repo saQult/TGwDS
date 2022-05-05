@@ -9,7 +9,7 @@ namespace TGwDS
     {
         public static async Task SendMessageToTelegram(SocketMessage message)
         {
-            if (message.Author.IsBot || String.IsNullOrEmpty(message.Content) || message.Channel.Id != 965599901201363004)
+            if (message.Author.IsBot || String.IsNullOrEmpty(message.Content) || message.Channel.Id != Startup.Config.DiscordChannelId)
                 return;
             DiscordLogger.ConsoleLog($"{message.Author.Username}: {message.Content}");
             string messageToSend = $"[DISCORD]\n{message.Author.Username}: {message.Content}";
