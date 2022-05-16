@@ -54,6 +54,8 @@ namespace TGwDS
                     if (message.ReplyToMessage.Text != null)
                     {
                         string forwardedAuthorText = message.ReplyToMessage.Text;
+                        if (forwardedAuthorText.StartsWith("[DISCORD]\n"))
+                            forwardedAuthorText = forwardedAuthorText.Replace("\n", "\n> ");
                         if (message.Text != null)
                         {
                             string authorText = message.Text;
@@ -68,7 +70,7 @@ namespace TGwDS
                         }
                         else if (message.Voice != null)
                         {
-                            if (message.Voice.FileSize > MAXSIZE)
+                            if (message.Voice.FileSize > MaxSize)
                             {
                                 await DiscordBot.SendMessageAsync(_channelToSend, $"**[TELEGRAM]** {message.From.FirstName} отправил голосовое сообщение в ответ, но он идет нахуй, потому что его ГС занимает больше 8 мегабайт");
                                 return;
@@ -79,7 +81,7 @@ namespace TGwDS
                         }
                         else if (message.Photo != null)
                         {
-                            if (message.Photo[message.Photo.Length - 1].FileSize > MAXSIZE)
+                            if (message.Photo[message.Photo.Length - 1].FileSize > MaxSize)
                             {
                                 await DiscordBot.SendMessageAsync(_channelToSend, $"**[TELEGRAM]** {message.From.FirstName} отправил фото в ответ, но он идет нахуй, потому что его файл занимает больше 8 мегабайт");
                                 return;
@@ -92,7 +94,7 @@ namespace TGwDS
                         }
                         else if (message.Document != null)
                         {
-                            if (message.Document.FileSize > MAXSIZE)
+                            if (message.Document.FileSize > MaxSize)
                             {
                                 await DiscordBot.SendMessageAsync(_channelToSend, $"**[TELEGRAM]** {message.From.FirstName} отправил файл, но он идет нахуй, потому что его файл занимает больше 8 мегабайт");
                                 return;
@@ -111,6 +113,8 @@ namespace TGwDS
                         if (message.ReplyToMessage.Text != null)
                         {
                             string forwardedAuthorText = message.ReplyToMessage.Text;
+                            if (forwardedAuthorText.StartsWith("[DISCORD]\n"))
+                                forwardedAuthorText = forwardedAuthorText.Replace("\n", "\n> ");
                             if (message.Text != null)
                             {
                                 string authorText = message.Text;
@@ -125,7 +129,7 @@ namespace TGwDS
                             }
                             else if (message.Voice != null)
                             {
-                                if (message.Voice.FileSize > MAXSIZE)
+                                if (message.Voice.FileSize > MaxSize)
                                 {
                                     await DiscordBot.SendMessageAsync(_channelToSend, $"**[TELEGRAM]** {message.From.FirstName} отправил голосовое сообщение в ответ, но он идет нахуй, потому что его ГС занимает больше 8 мегабайт");
                                     return;
@@ -136,7 +140,7 @@ namespace TGwDS
                             }
                             else if (message.Photo != null)
                             {
-                                if (message.Photo[message.Photo.Length - 1].FileSize > MAXSIZE)
+                                if (message.Photo[message.Photo.Length - 1].FileSize > MaxSize)
                                 {
                                     await DiscordBot.SendMessageAsync(_channelToSend, $"**[TELEGRAM]** {message.From.FirstName} отправил фото в ответ, но он идет нахуй, потому что его файл занимает больше 8 мегабайт");
                                     return;
@@ -149,7 +153,7 @@ namespace TGwDS
                             }
                             else if (message.Document != null)
                             {
-                                if (message.Document.FileSize > MAXSIZE)
+                                if (message.Document.FileSize > MaxSize)
                                 {
                                     await DiscordBot.SendMessageAsync(_channelToSend, $"**[TELEGRAM]** {message.From.FirstName} отправил файл, но он идет нахуй, потому что его файл занимает больше 8 мегабайт");
                                     return;
@@ -177,6 +181,8 @@ namespace TGwDS
                         if (message.ReplyToMessage.Text != null)
                         {
                             string forwardedAuthorText = message.ReplyToMessage.Text;
+                            if (forwardedAuthorText.StartsWith("[DISCORD]\n"))
+                                forwardedAuthorText = forwardedAuthorText.Replace("\n", "\n> ");
                             if (message.Text != null)
                             {
                                 string authorText = message.Text;
@@ -191,7 +197,7 @@ namespace TGwDS
                             }
                             else if (message.Voice != null)
                             {
-                                if (message.Voice.FileSize > MAXSIZE)
+                                if (message.Voice.FileSize > MaxSize)
                                 {
                                     await DiscordBot.SendMessageAsync(_channelToSend, $"**[TELEGRAM]** {message.From.FirstName} отправил голосовое сообщение в ответ, но он идет нахуй, потому что его ГС занимает больше 8 мегабайт");
                                     return;
@@ -202,7 +208,7 @@ namespace TGwDS
                             }
                             else if (message.Photo != null)
                             {
-                                if (message.Photo[message.Photo.Length - 1].FileSize > MAXSIZE)
+                                if (message.Photo[message.Photo.Length - 1].FileSize > MaxSize)
                                 {
                                     await DiscordBot.SendMessageAsync(_channelToSend, $"**[TELEGRAM]** {message.From.FirstName} отправил фото в ответ, но он идет нахуй, потому что его файл занимает больше 8 мегабайт");
                                     return;
@@ -215,7 +221,7 @@ namespace TGwDS
                             }
                             else if (message.Document != null)
                             {
-                                if (message.Document.FileSize > MAXSIZE)
+                                if (message.Document.FileSize > MaxSize)
                                 {
                                     await DiscordBot.SendMessageAsync(_channelToSend, $"**[TELEGRAM]** {message.From.FirstName} отправил файл, но он идет нахуй, потому что его файл занимает больше 8 мегабайт");
                                     return;
@@ -254,7 +260,7 @@ namespace TGwDS
                         }
                         else if (message.Voice != null)
                         {
-                            if (message.Voice.FileSize > MAXSIZE)
+                            if (message.Voice.FileSize > MaxSize)
                             {
                                 await DiscordBot.SendMessageAsync(_channelToSend, $"**[TELEGRAM]** {message.From.FirstName} отправил голосовое сообщение в ответ, но он идет нахуй, потому что его ГС занимает больше 8 мегабайт");
                                 return;
@@ -265,7 +271,7 @@ namespace TGwDS
                         }
                         else if (message.Photo != null)
                         {
-                            if (message.Photo[message.Photo.Length - 1].FileSize > MAXSIZE)
+                            if (message.Photo[message.Photo.Length - 1].FileSize > MaxSize)
                             {
                                 await DiscordBot.SendMessageAsync(_channelToSend, $"**[TELEGRAM]** {message.From.FirstName} отправил фото в ответ, но он идет нахуй, потому что его файл занимает больше 8 мегабайт");
                                 return;
@@ -279,7 +285,7 @@ namespace TGwDS
                         }
                         else if (message.Document != null)
                         {
-                            if (message.Document.FileSize > MAXSIZE)
+                            if (message.Document.FileSize > MaxSize)
                             {
                                 await DiscordBot.SendMessageAsync(_channelToSend, $"**[TELEGRAM]** {message.From.FirstName} отправил файл, но он идет нахуй, потому что его файл занимает больше 8 мегабайт");
                                 return;
@@ -314,7 +320,7 @@ namespace TGwDS
                         }
                         else if (message.Voice != null)
                         {
-                            if (message.Voice.FileSize > MAXSIZE)
+                            if (message.Voice.FileSize > MaxSize)
                             {
                                 await DiscordBot.SendMessageAsync(_channelToSend, $"**[TELEGRAM]** {message.From.FirstName} отправил голосовое сообщение в ответ, но он идет нахуй, потому что его ГС занимает больше 8 мегабайт");
                                 return;
@@ -325,7 +331,7 @@ namespace TGwDS
                         }
                         else if (message.Photo != null)
                         {
-                            if (message.Photo[message.Photo.Length - 1].FileSize > MAXSIZE)
+                            if (message.Photo[message.Photo.Length - 1].FileSize > MaxSize)
                             {
                                 await DiscordBot.SendMessageAsync(_channelToSend, $"**[TELEGRAM]** {message.From.FirstName} отправил фото в ответ, но он идет нахуй, потому что его файл занимает больше 8 мегабайт");
                                 return;
@@ -338,7 +344,7 @@ namespace TGwDS
                         }
                         else if (message.Document != null)
                         {
-                            if (message.Document.FileSize > MAXSIZE)
+                            if (message.Document.FileSize > MaxSize)
                             {
                                 await DiscordBot.SendMessageAsync(_channelToSend, $"**[TELEGRAM]** {message.From.FirstName} отправил файл, но он идет нахуй, потому что его файл занимает больше 8 мегабайт");
                                 return;
@@ -377,7 +383,7 @@ namespace TGwDS
                     }
                     else if (message.Photo != null)
                     {
-                        if (message.Photo[message.Photo.Length - 1].FileSize > MAXSIZE)
+                        if (message.Photo[message.Photo.Length - 1].FileSize > MaxSize)
                         {
                             await DiscordBot.SendMessageAsync(_channelToSend, $"**[TELEGRAM]** {message.From.FirstName} отправил фото, но он идет нахуй, потому что его файл занимает больше 8 мегабайт");
                             return;
@@ -391,7 +397,7 @@ namespace TGwDS
                     }
                     else if (message.Document != null)
                     {
-                        if (message.Document.FileSize > MAXSIZE)
+                        if (message.Document.FileSize > MaxSize)
                         {
                             await DiscordBot.SendMessageAsync(_channelToSend, $"**[TELEGRAM]** {message.From.FirstName} отправил файл, но он идет нахуй, потому что его файл занимает больше 8 мегабайт");
                             return;
@@ -420,7 +426,7 @@ namespace TGwDS
                     }
                     else if (message.Voice != null)
                     {
-                        if (message.Voice.FileSize > MAXSIZE)
+                        if (message.Voice.FileSize > MaxSize)
                         {
                             await DiscordBot.SendMessageAsync(_channelToSend, $"**[TELEGRAM]** {message.From.FirstName} отправил голосовое сообщение, но он идет нахуй, потому что его ГС занимает больше 8 мегабайт");
                             return;
@@ -440,7 +446,7 @@ namespace TGwDS
                     }
                     else if (message.Photo != null)
                     {
-                        if (message.Photo[message.Photo.Length - 1].FileSize > MAXSIZE)
+                        if (message.Photo[message.Photo.Length - 1].FileSize > MaxSize)
                         {
                             await DiscordBot.SendMessageAsync(_channelToSend, $"**[TELEGRAM]** {message.From.FirstName} отправил фото, но он идет нахуй, потому что его файл занимает больше 8 мегабайт");
                             return;
@@ -454,7 +460,7 @@ namespace TGwDS
                     }
                     else if (message.Document != null)
                     {
-                        if (message.Document.FileSize > MAXSIZE)
+                        if (message.Document.FileSize > MaxSize)
                         {
                             await DiscordBot.SendMessageAsync(_channelToSend, $"**[TELEGRAM]** {message.From.FirstName} отправил файл, но он идет нахуй, потому что его файл занимает больше 8 мегабайт");
                             return;
@@ -483,7 +489,7 @@ namespace TGwDS
                     }
                     else if (message.Voice != null)
                     {
-                        if (message.Voice.FileSize > MAXSIZE)
+                        if (message.Voice.FileSize > MaxSize)
                         {
                             await DiscordBot.SendMessageAsync(_channelToSend, $"**[TELEGRAM]** {message.From.FirstName} отправил голосовое сообщение, но он идет нахуй, потому что его ГС занимает больше 8 мегабайт");
                             return;
@@ -498,10 +504,6 @@ namespace TGwDS
             {
                 TelegramLogger.ConsoleLog(ex.ToString());
             }
-
-            
-
-
         }
     }
 }
