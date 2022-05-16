@@ -10,7 +10,7 @@ namespace TGwDS
     static class TelegramHandler
     {
         private static ulong _channelToSend = Startup.Config.DiscordChannelId;
-        private const int MAXSIZE = 83886080;
+        private const int MaxSize = 83886080;
         public static async Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
         {
             Console.WriteLine(JsonConvert.SerializeObject(exception));
