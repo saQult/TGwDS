@@ -21,14 +21,18 @@ namespace TGwDS
              */
             if (message.Author.IsBot || message.Channel.Id != Startup.Config.DiscordChannelId)
                 return;
+            string content = "";
+            if(message.Content != null)
+            {
+                content = message.Content;
+                foreach (var user in message.MentionedUsers)
+                    content = content.Replace($"<@{user.Id}>", $"@{user.Username}");
+                foreach (var channel in message.MentionedChannels)
+                    content = content.Replace($"<#{channel.Id}>", $"#{channel.Name}");
+                foreach (var role in message.MentionedRoles)
+                    content = content.Replace($"<@&{role.Id}>", $"@&{role.Name}");
+            }
 
-            string content = message.Content;
-            foreach (var user in message.MentionedUsers)
-                content = content.Replace($"<@{user.Id}>", $"@{user.Username}");
-            foreach (var channel in message.MentionedChannels)
-                content = content.Replace($"<#{channel.Id}>", $"#{channel.Name}");
-            foreach (var role in message.MentionedRoles)
-                content = content.Replace($"<@&{role.Id}>", $"@&{role.Name}");
 
             if (message.Attachments != null)
             {
@@ -86,7 +90,7 @@ namespace TGwDS
                 }
                 return;
             }
-            else
+            if(message.Content != null)
             {
                 DiscordLogger.ConsoleLog($"{message.Author.Username}: {content}");
                 string messageToSend = $"[DISCORD]\n{message.Author.Username}: {content}";
